@@ -31,11 +31,19 @@ public:
     void CreateTrayIconActions();
 
 signals:
-    
+
 public slots:
     void FindSrcFolder();
     void FindDstFolder();
     bool copyFile();
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
+    //void showMessage(char* msg);
+
+
+protected:
+    void changeEvent(QEvent *event);
+    void closeEvent(QCloseEvent *event);
+
 
 private:
     QString srcFolderPath;
